@@ -150,7 +150,7 @@ http://192.168.164.100/DVWA/vulnerabilities/fi/?page=../../../../../../etc/passw
 192.168.164.100/DVWA/vulnerabilities/xss_d/?default=<script>alert('You have been hacked!')</script>
 ```
 
-- Because of WAF so it's have been blocked:
+- It has been blocked because of Web Application Firewall (WAF):
 
 ![xss](xss.png)
 
@@ -165,7 +165,7 @@ http://192.168.164.100/DVWA/vulnerabilities/fi/?page=../../../../../../etc/passw
 http://192.168.164.100/DVWA/vulnerabilities/sqli/?id=%25%27+or+%270%27%3D%270&Submit=Submit#
 ```
 
-- Because of WAF so it's have been blocked:
+- It has been blocked because of Web Application Firewall (WAF):
 
 ![sql](sql.png)
 
