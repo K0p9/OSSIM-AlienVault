@@ -130,7 +130,7 @@ I am gonna try some simple attack to DVWA like XSS, SQL Injection, Path Traversa
 
 Let's check the Detection
 
-## Path Traversal Attack without go through WAF
+## 1. Path Traversal Attack without go through WAF
 - I am gonna change the path in the URL:
 
 ```shell
@@ -143,7 +143,7 @@ Let's check the Detection
 
 ![pathlog](pathlog.png)
 
-## XSS Attack go through WAF
+## 2. XSS Attack go through WAF
 - I will add a Scripts after "Default=" to attack:
 
 ```shell
@@ -156,7 +156,7 @@ Let's check the Detection
 
 ![xsslog](xsslog.png)
 
-## SQL Injection Attack go through WAF
+## 3. SQL Injection Attack go through WAF
 - I will use this command to attack to the submit:
 
 ```shell
