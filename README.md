@@ -36,7 +36,7 @@ After that download the latest OSSEC source code from the Official [release page
 ```shell
 wget https://github.com/ossec/ossec-hids/archive/3.6.0.tar.gz -P /tmp
 ```
-![ossecsourcecode](OSSECsourcecode.png)
+![ossecsourcecode](OSSECsource.png)
 
 Once the source download complete you can extract it by simply running this command:
 
