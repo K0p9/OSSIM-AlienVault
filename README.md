@@ -60,6 +60,7 @@ Further then select your installation language or press ENTER to choose default 
  - Enable or disable active directory response.
  - Once you are done with defining the default options, proceed to install the OSSEC agent by pressing ENTER
  - Then after press ENTER to close the installer as shown below
+
 ![config](config.png)
 
 ## 2. Deploying OSSEC agent to AlienVault Server
@@ -67,6 +68,59 @@ In a manner the agent to communicate with the server
 
   - You need to first add it to the HIDS server or AlienVault server
   - After that extract, the agent authentication key from the AlienVault server
-To extract agent key from server, go to the AlienVault Web UI and then navigate to Environment > Detection as shown below: –
 
+To extract agent key from server, go to the AlienVault Web UI and then navigate to Environment > Detection. Then select or add Agent where you installed OSSEC agent and then extract or copy the key as shown below: –
 
+![Key](Key.png)
+
+Once you have extracted the key, Import the key on the agent simply by running the following command: 
+
+```shell
+/var/ossec/bin/manage_agents
+```
+
+Enter I, paste the key that you copied from AlienVault Web UI and confirm adding the key then exit from the window by pressing Q as shown below:
+
+![pastekey](pastekey.png)
+
+Once the installation completes starting the OSSEC agent simply by running the following command:
+
+```shell
+/var/ossec/bin/ossec-control start
+```
+
+or
+
+```shell
+systemctl start ossec
+```
+
+![complete](Complete.png)
+
+To stop the agent run the below command
+
+```shell
+/var/ossec/bin/ossec-control stop
+```
+
+or
+
+```shell
+systemctl stop ossec
+```
+
+Other service control commands are described below.
+
+```shell
+/var/ossec/bin/ossec-control {start|stop|reload|restart|status}
+```
+
+Check the logs to see if the agent has connected to the server.
+
+```shell
+tail -f /var/ossec/logs/ossec.log
+```
+
+As you can see the agent is successfully connected to the AlienVault server
+
+We have successfully deployed our Ubuntu machine to the AlienVault server
