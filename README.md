@@ -6,7 +6,7 @@ This project aims to set up a virtualized environment using VMWare, incorporatin
 - VMWare installed
 - Downloaded OSSIM AlienVault Sensor and Server from the AT&T Security website
 - Basic knowledge of networking and virtualization concepts
-- Hosting DVWA in Kali Linux
+- Hosting DVWA in Kali Linux with ModSecurity WAF
 - Download OSSEC Source code
 
 # Proposed scheme
@@ -124,3 +124,50 @@ tail -f /var/ossec/logs/ossec.log
 As you can see the agent is successfully connected to the AlienVault server
 
 We have successfully deployed our Ubuntu machine to the AlienVault server
+
+# Detection Attack
+I am gonna try some simple attack to DVWA like XSS, SQL Injection, Path Traversal from the Attacker VM to DVWA VM. And some of them go through the ModSecurity WAF. 
+
+Let's check the Detection
+
+## Path Traversal Attack without go through WAF
+- I am gonna change the path in the URL:
+
+```shell
+
+```
+
+![pathtraversal](pathtraversal.png)
+
+- And here is the log that OSSIM have detected
+
+![pathlog](pathlog.png)
+
+## XSS Attack go through WAF
+- I will add a Scripts after "Default=" to attack:
+
+```shell
+
+```
+
+![xss](xss.png)
+
+- And here is the log that OSSIM have detected:
+
+![xsslog](xsslog.png)
+
+## SQL Injection Attack go through WAF
+- I will use this command to attack to the submit:
+
+```shell
+
+```
+
+![sql](sql.png)
+
+- And here is the log that OSSIM have detected:
+
+![sqllog](sqllog.png)
+
+
+
